@@ -133,7 +133,9 @@
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
+            var color = "#fde20c";
+                var percentage = 100 * (1 - progress);
+                progressBarFull.style.backgroundImage = `-webkit-linear-gradient(right, white, white ${percentage}%, ${color} ${percentage}%)`;
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
